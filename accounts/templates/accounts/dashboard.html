@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard - Colony</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-100">
+    <nav class="bg-white shadow mb-8 p-4 flex justify-between">
+      <span class="font-bold">Colony</span>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="text-indigo-600 hover:underline">
+          Logout
+        </button>
+      </form>
+    </nav>
+
+    <div class="px-8">
+      <h1 class="text-3xl font-bold mb-4">
+        Welcome to your Colony Dashboard, {{ request.user.username }}!
+      </h1>
+      <p class="text-gray-700">
+        This is your space to manage clients, projects, and grow your network.
+      </p>
+    </div>
+  </body>
+</html>
